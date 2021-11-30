@@ -1,4 +1,10 @@
 import re
+import os
+import sys
+
+dataset = []
+with open(os.path.join(sys.path[0], "2020day2input.txt")) as f:
+    dataset = f.read().split('\n')
 
 def part1(input):
     valid = 0
@@ -21,4 +27,3 @@ def part2(input):
         if (pw[min - 1] == target) ^ (pw[max - 1] == target):
             valid += 1
     return valid
-print(part2(dataset))

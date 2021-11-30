@@ -1,3 +1,10 @@
+import os
+import sys
+
+dataset = []
+with open(os.path.join(sys.path[0], "2020day1input.txt")) as f:
+    dataset = list(map(int, f.read().split('\n')))
+
 def part1(nums, target):
     for i in range(len(nums)):
         for j in range(i, len(nums)):
