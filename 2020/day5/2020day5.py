@@ -72,10 +72,8 @@ def part2(input):
             colNum = col[1]
             
         idList.append(rowNum * 8 + colNum)
-    for i in range(2, len(idList)):
-        if idList[i] - idList[i - 1] == 1 and idList[i - 1] - idList[i - 2] == 1:
-            id = idList[i - 1]
-    print(idList)
+    idList.sort()
+    for i in range(1, len(idList)):
+        if not idList[i] - idList[i - 1] == 1:
+            id = idList[i] - 1
     return id
-
-print(part2(dataset))
