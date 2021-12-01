@@ -45,5 +45,3 @@ def part2(input):
         if check == CHECKS:
             valid += 1
     return valid
-print(part2(dataset))
-#should be 123
