@@ -17,12 +17,12 @@ def part2(input):
     CHECKS = 7
     valid = 0
     
-    byr_regex = r'(?<=byr:)\d{4}'# four digits, 1920-2002
-    iyr_regex = r'(?<=iyr:)\d{4}'# four digits, 2010-2020
-    eyr_regex = r'(?<=eyr:)\d{4}'# four digits, 2020-2030
+    byr_regex = r'(?<=byr:)\d{4}\b'# four digits, 1920-2002
+    iyr_regex = r'(?<=iyr:)\d{4}\b'# four digits, 2010-2020
+    eyr_regex = r'(?<=eyr:)\d{4}\b'# four digits, 2020-2030
     hgt_in_regex = r'(?<=hgt:)\d+(?=in)'# num followed by 59-76in
     hgt_cm_regex = r'(?<=hgt:)\d+(?=cm)'# num followed by 150-193cm
-    hcl_regex = r'(?<=hcl:)#[0-9a-f]{6}'# # followed by six digit hexadecimal
+    hcl_regex = r'(?<=hcl:)#[0-9a-f]{6}\b'# # followed by six digit hexadecimal
     ecl_regex = r'(?<=ecl:)(amb|blu|brn|gry|grn|hzl|oth)'# amb blu brn gry grn hzl oth
     pid_regex = r'(?<=pid:)\d{9}\b'# nine digit including leading zeros
     
@@ -45,3 +45,4 @@ def part2(input):
         if check == CHECKS:
             valid += 1
     return valid
+print(part2(dataset))
