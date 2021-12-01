@@ -14,17 +14,18 @@ def part1(input):
     return valid
 
 def part2(input):
-    byr_regex = '(?<=byr:)[0-9]{4}'# four digits, 1920-2002
-    iyr_regex = '(?<=iyr:)[0-9]{4}'# four digits, 2010-2020
-    eyr_regex = '(?<=eyr:)[0-9]{4}'# four digits, 2020-2030
-    hgt_in_regex = '(?<=hgt:)[0-9]+(?=in)'# num followed by 59-76in
-    hgt_cm_regex = '(?<=hgt:)[0-9]+(?=cm)'# num followed by 150-193cm
-    hcl_regex = '(?<=hcl:)#[0-9a-f]{6}'# # followed by six digit hexadecimal
-    ecl_regex = '(?<=ecl:)amb|blu|brn|gry|grn|hzl|oth'# amb blu brn gry grn hzl oth
-    pid_regex = '(?<=pid:)[0-9]{9}'# nine digit including leading zeros
-    
     CHECKS = 7
     valid = 0
+    
+    byr_regex = r'(?<=byr:)\d{4}'# four digits, 1920-2002
+    iyr_regex = r'(?<=iyr:)\d{4}'# four digits, 2010-2020
+    eyr_regex = r'(?<=eyr:)\d{4}'# four digits, 2020-2030
+    hgt_in_regex = r'(?<=hgt:)\d+(?=in)'# num followed by 59-76in
+    hgt_cm_regex = r'(?<=hgt:)\d+(?=cm)'# num followed by 150-193cm
+    hcl_regex = r'(?<=hcl:)#[0-9a-f]{6}'# # followed by six digit hexadecimal
+    ecl_regex = r'(?<=ecl:)(amb|blu|brn|gry|grn|hzl|oth)'# amb blu brn gry grn hzl oth
+    pid_regex = r'(?<=pid:)\d{9}\b'# nine digit including leading zeros
+    
     for i in range(len(input)):
         check = 0
         if re.search(byr_regex, input[i]) and int(re.findall(byr_regex, input[i])[0]) >= 1920 and int(re.findall(byr_regex, input[i])[0]) <= 2002:
@@ -38,11 +39,11 @@ def part2(input):
         if re.search(hcl_regex, input[i]):
             check += 1
         if re.search(ecl_regex, input[i]):
-            check += 1          
+            check += 1
         if re.search(pid_regex, input[i]):
             check += 1
         if check == CHECKS:
             valid += 1
     return valid
-print('Part 1:', part1(dataset))
-print('Part 2:', part2(dataset))
+print(part2(dataset))
+#should be 123
