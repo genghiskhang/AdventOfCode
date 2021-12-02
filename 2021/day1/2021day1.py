@@ -16,6 +16,6 @@ def part1(input):
 def part2(input):
     increase = 0
     for i in range(3, len(input)):
-        if input[i] + input[i - 1] + input[i - 2] > input[i - 1] + input[i - 2] + input[i - 3]:
+        if input[i] > input[i - 3]:
             increase += 1
     return increase
